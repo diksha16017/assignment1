@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">PrimeNumbers</string>
+
+    <string name="true_btn">True</string>
+    <string name="false_btn">False</string>
+    <string name="next_btn">Next</string>
+    <string name="action_settings">Settings</string>
+</resources>

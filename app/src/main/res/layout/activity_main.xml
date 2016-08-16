@@ -1,0 +1,177 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:background="#009688"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:clickable="true"
+    android:focusable="true"
+    android:visibility="visible"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginLeft="20dp"
+                android:paddingTop="30dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Correct 0"
+                    android:typeface="serif"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:id="@+id/correct_textview"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold"  />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="InCorrect 0"
+                    android:typeface="serif"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginBottom="30dp"
+                    android:id="@+id/incorrect_textview"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="60dp"
+                android:layout_gravity="center"
+                android:id="@+id/question_textview"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:background="#B2DFDB"
+                android:orientation="horizontal"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginLeft="20dp"
+                android:paddingTop="30dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_gravity="center_horizontal"
+                android:gravity= "center_horizontal"
+                android:layout_width="match_parent"
+                android:id="@+id/btns_layout"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:focusable="true"
+                    android:typeface="serif"
+                    android:clickable="true"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#009688"
+                    android:textStyle="bold"
+                    android:layout_margin="20dp"
+                    android:text="@string/true_btn"
+                    android:drawableLeft="@drawable/correct_pic"
+                    android:id="@+id/true_button"
+                    android:textColor="#ffffff"
+                    android:layout_gravity="center_horizontal"
+                    android:onClick="onTrueClick"/>
+
+
+                <Button
+                    android:layout_margin="20dp"
+                    android:typeface="serif"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/false_btn"
+                    android:textStyle="bold"
+                    android:layout_marginTop="30dp"
+                    android:drawableRight="@drawable/incorrect_pic"
+                    android:id="@+id/false_button"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:background="#009688"
+                    android:textColor="#ffffff"
+                    android:layout_gravity="center_horizontal"
+                    android:onClick="onFalseClick"
+                    android:visibility="visible"
+                    android:focusable="true"
+                    android:clickable="true" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:orientation="vertical"
+                android:id="@+id/next_layout"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_centerVertical="true">
+
+                <Button
+                    android:layout_marginTop="30dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/next_btn"
+                    android:textStyle="bold"
+                    android:drawableRight="@drawable/next_pic"
+                    android:id="@+id/next_button"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:background="#009688"
+                    android:textColor="#ffffff"
+                    android:layout_marginBottom="30dp"
+                    android:layout_gravity="center_horizontal"
+                    android:onClick="onNextClick"
+                    android:typeface="serif"
+                    android:visibility="invisible"
+                    android:focusable="true"
+                    android:clickable="true" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+
+    </ScrollView>
+
+</LinearLayout>
+
