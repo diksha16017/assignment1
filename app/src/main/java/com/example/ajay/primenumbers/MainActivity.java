@@ -196,7 +196,7 @@ public class MainActivity extends ActionBarActivity {
         Log.d(TAG,"Inside OnPause");
     }
 
-    /*method by default present and it is one of the part of activity life cycle*/
+    /*method by default present and one of the part of activity life cycle*/
     @Override
     public void onResume(){
         super.onResume();
