@@ -5,4 +5,11 @@
     <string name="false_btn">False</string>
     <string name="next_btn">Next</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_hint">HintActivity</string>
+    <string name="hint_btn1"><u>Show Hint</u></string>
+    <string name="hint_btn">Hint</string>
+    <string name="back_btn">Back</string>
+    <string name="cheat_btn">Cheat Answer</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_cheat">CheatActivity</string>
 </resources>

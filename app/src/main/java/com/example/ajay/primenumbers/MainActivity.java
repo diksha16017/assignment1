@@ -1,5 +1,6 @@
 package com.example.ajay.primenumbers;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -20,6 +21,8 @@ public class MainActivity extends ActionBarActivity {
     private TextView correct;
     private TextView incorrect;
     private static final String TAG = "MainActivity";
+    static final int cheatActivityRequest = 1;
+    static final int hintActivityRequest = 2;
     private static final String MESSAGE ="Is 29 A Prime Number ?";
     private int correctscoreInt,incorrectscoreInt;
     private String question,CorrectScore,InCorrectScore;
@@ -27,9 +30,10 @@ public class MainActivity extends ActionBarActivity {
     private int flag = 0;
     private int color= Color.parseColor("#B2DFDB");
     private int color1= Color.parseColor("#009688");
-
+    int flaghintt  = 0;
+    int flagcheatt =0;
     //private int visibleFlag = 0;
-    private Button nextBtn,trueBtn,falseBtn;
+    private Button nextBtn,trueBtn,falseBtn,cheatBtn,hintBtn;
     private LinearLayout linear,linear1;
 
     /* this is by default method which is called when the activity is firstly loaded*/
@@ -45,6 +49,8 @@ public class MainActivity extends ActionBarActivity {
         nextBtn=(Button)findViewById(R.id.next_button);
         trueBtn=(Button)findViewById(R.id.true_button);
         falseBtn=(Button)findViewById(R.id.false_button);
+        hintBtn=(Button)findViewById(R.id.hint_button);
+        cheatBtn=(Button)findViewById(R.id.cheat_button);
         linear=(LinearLayout) findViewById(R.id.next_layout);
         linear1=(LinearLayout)findViewById(R.id.btns_layout);
         enter_question.setText(MESSAGE);
@@ -69,7 +75,7 @@ public class MainActivity extends ActionBarActivity {
 
 
     }
-/*  method is made to check primality of number */
+    /*  method is made to check primality of number */
     void checkPrime(int n)
     {
         int i;
@@ -84,7 +90,7 @@ public class MainActivity extends ActionBarActivity {
             flag = 1;
         }
     }
-/* method is made which will be called on clicking of false button */
+    /* method is made which will be called on clicking of false button */
     public void onFalseClick(View view) {
 
 
@@ -117,6 +123,7 @@ public class MainActivity extends ActionBarActivity {
         trueBtn.setVisibility(view.INVISIBLE);
         falseBtn.setVisibility(view.INVISIBLE);
         linear1.setBackgroundColor(color1);
+        cheatBtn.setVisibility(view.GONE);
     }
 
     /* method is made which will be called on clicking of true button */
@@ -150,6 +157,7 @@ public class MainActivity extends ActionBarActivity {
         trueBtn.setVisibility(view.INVISIBLE);
         falseBtn.setVisibility(view.INVISIBLE);
         linear1.setBackgroundColor(color1);
+        cheatBtn.setVisibility(view.GONE);
     }
     /* method is made which will be called on clicking of next button */
     public void onNextClick(View view)
@@ -165,10 +173,80 @@ public class MainActivity extends ActionBarActivity {
         falseBtn.setVisibility(view.VISIBLE);
         nextBtn.setVisibility(view.INVISIBLE);
         linear.setBackgroundColor(color1);
+        cheatBtn.setVisibility(view.VISIBLE);
+
+    }
+
+/*
+* this method is made to start new activity ie hintactivity on click of hint button
+* */
+    public void onHintClick(View view)
+    {
+        /*
+        * intent is used to start new activity
+        * */
+        Intent hint_activity = new Intent(MainActivity.this,HintActivity.class);
+        startActivityForResult(hint_activity,hintActivityRequest);
 
     }
 
 
+/**
+ * this method is made to start new cheatactivity on click of cheat button
+ *
+ */
+
+    public void onCheatClick(View view)
+    {
+        int number;
+        question = enter_question.getText().toString();
+        String[] question_array = question.split(" ");
+        number = Integer.parseInt(question_array[1]);
+        Bundle basket = new Bundle();
+        basket.putInt("numberPrime", number);
+        Intent intent = new Intent(MainActivity.this, CheatActivity.class);
+        intent.putExtras(basket);
+        startActivityForResult(intent,cheatActivityRequest);
+
+
+    }
+
+/*
+* this method is by default present to check from which child activity parent activity is being interacting
+* */
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // Check which request we're responding to
+
+        if (requestCode == cheatActivityRequest) {
+            // Make sure the request was successful
+            if (resultCode == RESULT_OK) {
+
+                flagcheatt = data.getIntExtra("cheat_flag",0);
+                if(flagcheatt == 1)
+                {
+                    Toast.makeText(MainActivity.this, "" + "hey you have cheated the answer..", Toast.LENGTH_LONG).show();
+                }
+
+            }
+        }
+        else if(requestCode == hintActivityRequest)
+        {
+            if (resultCode == RESULT_OK) {
+
+
+                flaghintt = data.getIntExtra("hint_flag",0);
+                if(flaghintt == 1)
+                {
+                    Toast.makeText(MainActivity.this, "" + "hey you have taken a hint", Toast.LENGTH_LONG).show();
+                }
+
+            }
+        }
+    }
+/*
+* method by default present to store values which will be fetched at time of calling oncreate()
+* */
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState){
 
