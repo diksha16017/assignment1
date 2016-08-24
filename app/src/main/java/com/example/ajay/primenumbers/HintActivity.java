@@ -12,7 +12,7 @@ import android.widget.TextView;
 public class HintActivity extends ActionBarActivity {
 
     private TextView showHint;
-    int setFlag = 0;
+    private int setFlag = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

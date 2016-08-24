@@ -12,9 +12,10 @@ import android.widget.Toast;
 
 public class CheatActivity extends ActionBarActivity {
 
-    TextView showcheat;
-    int prime;
-    int flag=0;
+    private TextView showcheat;
+    private int prime;
+    //private int flag=0;
+    private int usecheat =0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,11 +24,11 @@ public class CheatActivity extends ActionBarActivity {
         showcheat = (TextView) findViewById(R.id.cheat_textview);
         Bundle gotBasket= getIntent().getExtras();
         prime=gotBasket.getInt("numberPrime");
-        getPrime();
+        //getPrime();
     }
 /*
 * method to check whether the number coming from parentactivity is prime or not
-* */
+*
     public void getPrime()
     {
 
@@ -53,13 +54,13 @@ public class CheatActivity extends ActionBarActivity {
         {
             Toast.makeText(CheatActivity.this, "" + "Its not a prime number", Toast.LENGTH_LONG).show();
         }
-    }
+    }*/
 
-    /*public void onCheatAnswerClick(View view)
+    public void onCheatAnswerClick(View view)
     {
 
         showcheat.setText("Number is : "+prime);
-        flag=0;
+         int flag=0;
         int n=prime;
         int i;
         for (i = 2; i <= n / 2; i++)
@@ -80,8 +81,9 @@ public class CheatActivity extends ActionBarActivity {
         {
             Toast.makeText(CheatActivity.this, "" + "Its not a prime number", Toast.LENGTH_LONG).show();
         }
+        usecheat =1;
     }
-*/
+
 
     /*
     *
@@ -91,7 +93,7 @@ public class CheatActivity extends ActionBarActivity {
     public void onCheatBackClick(View view)
     {
         Intent mainAct = new Intent(CheatActivity.this, MainActivity.class);
-        mainAct.putExtra("cheat_flag",1);
+        mainAct.putExtra("cheat_flag",usecheat);
         setResult(RESULT_OK,mainAct);
         finish();
     }

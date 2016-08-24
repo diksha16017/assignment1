@@ -36,6 +36,20 @@
                 android:layout_marginStart="20dp"
                 android:layout_height="wrap_content">
 
+                <Button
+                    android:layout_width="match_parent"
+                    android:background="#B2DFDB"
+                    android:layout_margin="20dp"
+                    android:focusable="true"
+                    android:onClick="onCheatAnswerClick"
+                    android:typeface="serif"
+                    android:clickable="true"
+                    android:textStyle="bold"
+                    android:id="@+id/cheat_answer_button"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="@string/cheat_btn1"
+                    android:layout_height="wrap_content" />
+
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -56,7 +70,7 @@
                 android:layout_gravity="center_horizontal"
                 android:gravity="center_horizontal"
                 android:orientation="horizontal"
-                android:layout_marginTop="100dp"
+                android:layout_marginTop="120dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:layout_height="wrap_content">
