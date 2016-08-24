@@ -56,6 +56,9 @@ public class CheatActivity extends ActionBarActivity {
         }
     }*/
 
+    /*
+    * method made to get response when cheat button on cheatactivity is pressed
+    * */
     public void onCheatAnswerClick(View view)
     {
 
